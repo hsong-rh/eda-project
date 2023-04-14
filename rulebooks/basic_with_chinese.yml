@@ -1,0 +1,38 @@
+---
+- name: 中文测试手册
+  hosts: all
+  sources:
+    - name: my test source
+      ansible.eda.range:
+        limit: 6
+  rules:
+    - name: 第一规则
+      condition: event.i == 1
+      action:
+        run_job_template:
+          name: Hello World
+          organization: Default
+          job_args:
+            extra_vars:
+              hello: Fred
+    - name: 第二规则
+      condition: event.i == 2
+      action:
+        debug:
+    - name: 第三规则
+      condition: event.i == 3
+      action:
+        print_event:
+          pretty: true
+    - name: 第四规则
+      condition: event.i == 4
+      action:
+        set_fact:
+          fact:
+            name: fred
+    - name: 第五规则
+      condition: event.message == "hello world"
+      action:
+        retract_fact:
+          fact:
+            message: hello world
