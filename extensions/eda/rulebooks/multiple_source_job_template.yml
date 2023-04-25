@@ -17,7 +17,7 @@
           - event.i == 85
       action:
         run_job_template:
-          name: Hello World
+          name: Demo Job Template
           organization: Default
           job_args:
             extra_vars:

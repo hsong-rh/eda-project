@@ -13,7 +13,7 @@
           - event.i == 7
       action:
         run_job_template:
-          name: Hello World
+          name: Demo Job Template
           organization: Default
           job_args:
             extra_vars:

@@ -11,7 +11,7 @@
       condition: event.i == 1
       action:
         run_job_template:
-          name: Hello World
+          name: Demo Job Template
           organization: Default
           job_args:
             extra_vars:
@@ -20,7 +20,7 @@
       condition: event.i == 2
       action:
         run_job_template:
-          name: Hello World
+          name: Demo Job Template
           organization: Default
           job_args:
             extra_vars:
@@ -29,7 +29,7 @@
       condition: event.i == 3
       action:
         run_job_template:
-          name: Hello World
+          name: Demo Job Template
           organization: Default
           job_args:
             extra_vars:
