@@ -5,12 +5,13 @@
     - name: my test source
       ansible.eda.range:
         limit: 6
+        delay: 60
   rules:
     - name: Run job template
       condition: event.i == 1
       action:
         run_job_template:
-          name: Demo Job Template
+          name: Hello World
           organization: Default
           job_args:
             extra_vars:
