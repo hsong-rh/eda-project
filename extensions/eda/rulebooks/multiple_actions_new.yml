@@ -1,0 +1,25 @@
+---
+- name: set1
+  hosts: all
+  execution_strategy: parallel
+  sources:
+    - name: sourceA
+      ansible.eda.range:
+        limit: 10
+        delay: 2
+  rules:
+    - name: rule1
+      condition: event.i > 0
+      actions:
+        - print_event:
+            pretty: true
+        - run_job_template:
+            name: Hello World
+            organization: Default
+            job_args:
+              extra_vars:
+                hello: Fred
+        - debug:
+            msg:
+              - debug message 1
+              - debug message 2
