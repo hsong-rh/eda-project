@@ -1,0 +1,17 @@
+---
+- name: "Launch storm of JT's with a single action" 
+  hosts: all
+  sources:
+    - ansible.eda.generic:
+        shutdown_after: 3600
+        repeat_count: 100
+        create_index: "index"
+        payload:
+          - state: "down"
+
+
+  rules:
+    - name: "Run job template - storm mode - single debug"
+      condition: event.state == "down"
+      action:
+        debug:
