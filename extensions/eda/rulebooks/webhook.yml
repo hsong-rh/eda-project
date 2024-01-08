@@ -4,16 +4,13 @@
   sources:
     - ansible.eda.webhook:
         host: 0.0.0.0
-        port: 9999
+        port: 5555
+    - ansible.eda.webhook:
+        host: 0.0.0.0
+        port: 4444
 
   rules:
-    - name: Rule - Print event information
-      condition: event.meta.headers is defined
+    - name: webhook event
+      condition: "true == true"
       action:
-        run_job_template:
-          name: Hello World
-          organization: Default
-          job_args:
-            extra_vars:
-              message: from eda
-              sleep: 1
+        print_event:
