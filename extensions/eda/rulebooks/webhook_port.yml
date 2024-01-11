@@ -3,7 +3,7 @@
   hosts: all
   sources:
     - ansible.eda.webhook:
-        port: 5555
+        port: 6666
   rules:
     - name: Webhook event
       condition: event.payload.ping == "pong"
