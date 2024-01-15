@@ -1,0 +1,12 @@
+---
+- name: demo
+  hosts: all
+  sources:
+    - name: my test source
+      ansible.eda.range:
+        limit: "{{ vault_limit }}"
+  rules:
+    - name: rule1
+      condition: event.i > 1
+      action:
+        print_event:
