@@ -1,0 +1,25 @@
+---
+- name: EDA Hackathon Rulebook
+  hosts: localhost
+  sources:
+    - name: listen for alerts
+      ansible.eda.webhook:
+        host: 0.0.0.0
+        port: 5000
+  rules:
+    - name: Ansible message
+      condition: event.payload.hook.active
+      action:
+        run_job_template:
+          organization: Default
+          name: "{{ job_template_name }}"
+          job_args:
+            extra_vars:
+              job_template_name: "{{ job_template_name }}"
+              vault_message: !vault |
+                $ANSIBLE_VAULT;1.1;AES256
+                62316234356634303831626338316665656430396135656633373161373433333463613063666234
+                3634653864363466343734643337643337393065353738320a656332326162386138643438623934
+                32656435343532393235626435613762663066396264646564626135613235343637376337343134
+                3764323731663962350a383934623330353034363538393062303031313032666261663266643135
+                61396437323334613639636230626135376462646433383033643861366339623431
